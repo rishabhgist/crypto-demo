@@ -1,6 +1,4 @@
 "use client";
-/* eslint-disable */
-/* eslint-disable @typescript-eslint/no-explicit-any */
 
 import React, { useEffect, useRef } from "react";
 
@@ -84,7 +82,7 @@ const LiveMarketPanel: React.FC = () => {
           columns: ["price", "volume"],
           sort: [["timestamp", "desc"]],
           plugin_config: {},
-          theme: "material",
+          theme: "modern",
         });
       }
 
@@ -106,7 +104,11 @@ const LiveMarketPanel: React.FC = () => {
         //@ts-ignore
         <perspective-viewer
           ref={viewerRef}
-          style={{ height: "100%", width: "100%" }}
+          style={{
+            height: "100%",
+            width: "100%",
+            backgroundColor: "#00000000",
+          }}
           view="datagrid"
           plugin="datagrid"
         />

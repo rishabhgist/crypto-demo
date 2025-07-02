@@ -16,10 +16,10 @@ export function TradingPanel() {
     <Card className="h-full flex flex-col">
       <CardHeader className="flex-shrink-0 pb-3">
         <div className="flex items-center justify-between">
-          <CardTitle className="text-lg font-semibold">Live Trades</CardTitle>
+          <CardTitle className="text-lg font-semibold">Recent Trades</CardTitle>
           <div className="flex items-center gap-2">
             <Badge variant={isConnected ? "default" : "destructive"}>
-              {isConnected ? "Connected" : "Disconnected"}
+              {isConnected ? "Live Connection" : "No Connection"}
             </Badge>
             <Button
               size="sm"
@@ -28,7 +28,7 @@ export function TradingPanel() {
               disabled={trades.length === 0}
             >
               <Download className="h-4 w-4 mr-1" />
-              CSV
+              Download CSV
             </Button>
           </div>
         </div>
@@ -39,8 +39,8 @@ export function TradingPanel() {
             {trades.length === 0 ? (
               <div className="text-center text-muted-foreground py-8">
                 {isConnected
-                  ? "Waiting for trades..."
-                  : "Connecting to live data..."}
+                  ? "Waiting for new trades to arrive..."
+                  : "Trying to connect to live data..."}
               </div>
             ) : (
               trades.map((trade) => (

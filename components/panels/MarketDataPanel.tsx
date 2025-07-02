@@ -236,11 +236,11 @@ export function MarketDataPanel(props: IDockviewPanelProps) {
               <SelectValue />
             </SelectTrigger>
             <SelectContent>
-              <SelectItem value="BTCUSDT">BTC/USDT</SelectItem>
-              <SelectItem value="ETHUSDT">ETH/USDT</SelectItem>
-              <SelectItem value="BNBUSDT">BNB/USDT</SelectItem>
-              <SelectItem value="ADAUSDT">ADA/USDT</SelectItem>
-              <SelectItem value="SOLUSDT">SOL/USDT</SelectItem>
+              <SelectItem value="BTCUSDT">Bitcoin (BTC/USDT)</SelectItem>
+              <SelectItem value="ETHUSDT">Ethereum (ETH/USDT)</SelectItem>
+              <SelectItem value="BNBUSDT">Binance Coin (BNB/USDT)</SelectItem>
+              <SelectItem value="ADAUSDT">Cardano (ADA/USDT)</SelectItem>
+              <SelectItem value="SOLUSDT">Solana (SOL/USDT)</SelectItem>
             </SelectContent>
           </Select>
         </div>
@@ -284,7 +284,7 @@ export function MarketDataPanel(props: IDockviewPanelProps) {
                 ))
               ) : (
                 <div className="text-xs text-muted-foreground text-center py-4">
-                  No recent trades
+                  No trades have happened yet
                 </div>
               )}
             </div>

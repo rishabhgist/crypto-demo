@@ -1,4 +1,3 @@
-// CandleStickChart.tsx
 import React, { useEffect, useMemo, useState } from "react";
 import Highcharts from "highcharts/highstock";
 import HighchartsReact from "highcharts-react-official";
@@ -30,7 +29,7 @@ const generateMockCandles = (
   return candles;
 };
 
-const CandleStickChart: React.FC = () => {
+const PriceChartPanel: React.FC = () => {
   const { state } = useDashboard();
   const { theme } = state;
   const [data, setData] = useState<[number, number, number, number, number][]>(
@@ -47,13 +46,13 @@ const CandleStickChart: React.FC = () => {
   const chartOptions: Highcharts.Options = useMemo(
     () => ({
       chart: {
-        backgroundColor: isDark ? "#1e1e1e" : "#ffffff",
+        backgroundColor: "#00000000",
         style: {
           color: isDark ? "#ffffff" : "#000000",
         },
       },
       title: {
-        text: "Mock Candlestick Chart",
+        text: "Price History",
         style: { color: isDark ? "#ffffff" : "#000000" },
       },
       rangeSelector: {
@@ -90,8 +89,12 @@ const CandleStickChart: React.FC = () => {
       series: [
         {
           type: "candlestick",
-          name: "Mock Data",
+          name: "Price Data",
           data,
+          color: "#e74c3c", // 🔴 Red for down
+          upColor: "#2ecc71", // 🟢 Green for up
+          lineColor: isDark ? "#cccccc" : "#333333",
+          upLineColor: isDark ? "#cccccc" : "#333333",
           tooltip: {
             valueDecimals: 2,
           },
@@ -100,18 +103,17 @@ const CandleStickChart: React.FC = () => {
     }),
     [data, isDark]
   );
-  useEffect(() => {
-    console.log(theme);
-  }, [theme]);
 
   return (
-    <HighchartsReact
-      key={theme}
-      highcharts={Highcharts}
-      constructorType={"stockChart"}
-      options={chartOptions}
-    />
+    <div className="bg-transparent h-full">
+      <HighchartsReact
+        key={theme}
+        highcharts={Highcharts}
+        constructorType="stockChart"
+        options={chartOptions}
+      />
+    </div>
   );
 };
 
-export default CandleStickChart;
+export default PriceChartPanel;
