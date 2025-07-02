@@ -2,20 +2,19 @@
 # 🪙 CryptoDemo App
 
 A modern, developer-friendly crypto market dashboard built with **Next.js**, **DockView**, **Highcharts**, and **Perspective**. It provides real-time trade data, candlestick price charts, and mock market insights.
-
 ---
 
 ## 🚀 Live Demo
 
-> Hosted on [Vercel/Netlify] — *(add your deployment link here)*
-
+> Hosted on [Vercel] — *(https://crypto-demo-brown.vercel.app/)*
+https://crypto-demo-brown.vercel.app/
 ---
 
 ## 🛠️ Setup Instructions
 
 ```bash
 # 1. Clone the repository
-git clone https://github.com/your-username/crypto-demo.git
+git clone https://github.com/rishabhgist/crypto-demo.git
 cd crypto-demo
 
 # 2. Install dependencies
