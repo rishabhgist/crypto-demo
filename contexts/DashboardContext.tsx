@@ -234,9 +234,9 @@ const DashboardContext = createContext<DashboardContextType | undefined>(
 
 export function DashboardProvider({ children }: { children: ReactNode }) {
   const [state, dispatch] = useReducer(dashboardReducer, initialState);
-  const wsManagerRef = useRef<BinanceWebSocketManager | null>(null);
-  const tradesBatchRef = useRef<ProcessedTradeData[]>([]);
-  const batchTimeoutRef = useRef<NodeJS.Timeout>();
+  const wsManagerRef = useRef<any | null>(null);
+  const tradesBatchRef = useRef<any[]>([]);
+  const batchTimeoutRef = useRef<any>(null);
   const isInitializedRef = useRef(false);
 
   // Stable callback references

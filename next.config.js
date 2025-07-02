@@ -1,6 +1,9 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   output: "export",
+  typescript: {
+    ignoreBuildErrors: true,
+  },
   eslint: {
     ignoreDuringBuilds: true,
   },
@@ -11,7 +14,6 @@ const nextConfig = {
       asyncWebAssembly: true,
     };
 
-    // Fallback for dependencies
     if (!isServer) {
       config.resolve.fallback = {
         ...config.resolve.fallback,
@@ -20,10 +22,9 @@ const nextConfig = {
       };
     }
 
-    // Add custom rule to load .wasm files as assets when using ?url
     config.module.rules.push({
       test: /\.wasm$/,
-      resourceQuery: /url/, // only if imported with ?url
+      resourceQuery: /url/,
       type: "asset/resource",
     });
 

@@ -19,7 +19,6 @@ import {
   BarChart3,
   AlertCircle,
 } from "lucide-react";
-import TradeFeed from "../tradefeed/TradeFeed";
 
 interface OrderBookEntry {
   price: number;

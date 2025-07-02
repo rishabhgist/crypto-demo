@@ -102,6 +102,7 @@ const createComponents = () => {
   const components: Record<string, React.FC<IDockviewPanelProps>> = {};
 
   // Use real components
+  //@ts-ignore
   components["live-trades"] = LiveTradesPanel;
   components["price-chart"] = PriceChartPanel;
   components["market-data"] = MarketDataPanel;

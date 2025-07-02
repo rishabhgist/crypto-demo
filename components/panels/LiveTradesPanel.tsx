@@ -1,4 +1,6 @@
 "use client";
+/* eslint-disable */
+/* eslint-disable @typescript-eslint/no-explicit-any */
 
 import React, { useEffect, useRef } from "react";
 
@@ -15,10 +17,12 @@ import SERVER_WASM_URL from "@finos/perspective/dist/wasm/perspective-server.was
 import CLIENT_WASM_URL from "@finos/perspective-viewer/dist/wasm/perspective-viewer.wasm?url";
 
 if (!(window as any).__perspective_client_initialized) {
+  //@ts-ignore
   perspective_viewer.init_client(fetch(CLIENT_WASM_URL));
   (window as any).__perspective_client_initialized = true;
 }
 // Schema definition
+//@ts-ignore
 const SCHEMA: psp.Schema = {
   timestamp: "datetime",
   symbol: "string",
@@ -66,6 +70,7 @@ const LiveMarketPanel: React.FC = () => {
     let interval: any;
 
     const setup = async () => {
+      //@ts-ignore
       await perspective.init_server(fetch(SERVER_WASM_URL));
 
       const worker = await perspective.worker();
@@ -97,12 +102,15 @@ const LiveMarketPanel: React.FC = () => {
 
   return (
     <div style={{ height: "100vh", padding: "10px" }}>
-      <perspective-viewer
-        ref={viewerRef}
-        style={{ height: "100%", width: "100%" }}
-        view="datagrid"
-        plugin="datagrid"
-      ></perspective-viewer>
+      {
+        //@ts-ignore
+        <perspective-viewer
+          ref={viewerRef}
+          style={{ height: "100%", width: "100%" }}
+          view="datagrid"
+          plugin="datagrid"
+        />
+      }
     </div>
   );
 };

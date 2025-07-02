@@ -1,10 +1,4 @@
-declare module "*.wasm" {
-  const value: string;
-  export default value;
-}
-
-declare module "@finos/perspective";
-
+// src/custom-elements.d.ts
 declare namespace JSX {
   interface IntrinsicElements {
     "perspective-viewer": React.DetailedHTMLProps<
